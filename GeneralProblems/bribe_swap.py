@@ -11,7 +11,7 @@ def numofbribe(arr):
     i = len(arr)-1
     count = 0
 
-    while i>0:
+    while i>=0:
         if (arr[i] - (i+1) > 2):
             print("Too chaotic")
             return
