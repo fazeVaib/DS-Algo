@@ -8,8 +8,7 @@ def getMinCost(k, c):
     totalcost = 0
     arr = sorted(c, reverse=True)
     for i in range(len(arr)):
-        totalcost += (counter[i%k] + 1)*arr[i]
-        counter[i%k] += 1
+        totalcost += (i//k + 1)*arr[i]
     return totalcost
 
 
