@@ -4,32 +4,32 @@ from collections import defaultdict
 
 def roadsAndLibraries(n, c_lib, c_road, cities):
     if c_road >= c_lib:
-        return c_lib*n
+        return n*c_lib
     else:
-        tempd = defaultdict(list)
-        for road in cities:
-            tempd[road[0]].append(road[1])
-            tempd[road[1]].append(road[0])
-
-        look = [False]*n
         q = Queue()
-        tot = 0
-        for i in range(n):
-            if look[i]:
-                continue
-            q.put(i+1)
-            look[i] = True
-            tot += c_lib
-            while not q.empty():
-                k = q.get()
-                tot += c_road
-                for d in tempd[k]:
-                    if not look[d-1]:
-                        q.put(d)
-                        look[d-1] = True
-            tot -= c_road
-        return tot
+        visitedcity = [False]*n
+        neighbours = defaultdict(list)
+        totalCost = 0
 
+        for road in cities:
+            neighbours[road[0]].append(road[1])
+            neighbours[road[1]].append(road[0])
+
+        for i in range(n):
+            if visitedcity[i]:
+                continue
+            visitedcity[i] == True
+            q.put(i+1)
+            totalCost += c_lib
+            while not q.empty():
+                d = q.get()
+                totalCost += c_road
+                for city in neighbours[d]:
+                    if not visitedcity[city-1]:
+                        q.put(city)
+                        visitedcity[city-1]==True
+        totalCost -= c_road
+    return totalCost
 
 if __name__ == '__main__':
     q = int(input())
