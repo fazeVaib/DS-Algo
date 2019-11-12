@@ -1,6 +1,6 @@
 -- 1179.Reformat Department Table
 
-# Write your MySQL query statement below
+--  Write your MySQL query statement below
 SELECT
   id,
   MAX(IF(month = 'Jan', revenue, null)) AS Jan_Revenue,
