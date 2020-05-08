@@ -7,6 +7,8 @@
 #         self.left = None
 #         self.right = None
 
+def newfunc():
+	print("lol")
 
 class Solution:
     def isUnivalTree(self, root: TreeNode) -> bool:
@@ -22,3 +24,5 @@ class Solution:
                 return False
 
         return self.isUnivalTree(root.left) and self.isUnivalTree(root.right)
+
+newfunc()
